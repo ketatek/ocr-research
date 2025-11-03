@@ -1,0 +1,25 @@
+# Core OCR libraries
+markitdown
+docling
+docling-core
+
+# Azure services
+azure-ai-documentintelligence
+azure-ai-formrecognizer
+openai
+azure-identity
+
+# Utilities
+python-dotenv
+PyYAML
+pillow
+pdf2image
+pypdf
+
+# For progress and logging
+tqdm
+loguru
+
+# Optional dependencies
+beautifulsoup4
+lxml
