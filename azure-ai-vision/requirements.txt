@@ -1,0 +1,4 @@
+azure-ai-vision
+pdf2image
+pillow
+python-dotenv
