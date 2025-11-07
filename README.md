@@ -131,6 +131,10 @@ python ocr_processor.py ../sample_pdfs/your-document.pdf output.txt
 - [Azure Document Intelligence](https://azure.microsoft.com/ja-jp/products/ai-services/ai-document-intelligence)
 - [Azure OpenAI Service](https://azure.microsoft.com/ja-jp/products/ai-services/openai-service)
 
+## このプロジェクトについて
+
+このリポジトリは[Claude Code](https://docs.claude.com/en/docs/claude-code)を使用して作成されました。
+
 ## ライセンス
 
 このプロジェクトはMITライセンスの下で公開されています。
