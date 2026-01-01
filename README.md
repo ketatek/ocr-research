@@ -10,7 +10,7 @@ OCR（光学文字認識）技術の各種ライブラリとサービスを比�
 2. **[Docling](./docling/)** - IBM Researchが提供する高度なドキュメント処理ライブラリ
 3. **[Azure AI Vision](./azure-ai-vision/)** - Azure Computer VisionのRead API（OCR特化）
 4. **[Azure Document Intelligence](./azure-document-intelligence/)** - Azureの高精度ドキュメント分析サービス
-5. **[Azure OpenAI Mistral OCR (PDF)](./aoai-mistral-ocr-pdf/)** - Mistral OCRモデル（PDF直接処理）
+5. **[Azure OpenAI Mistral (PDF)](./aoai-mistral-pdf/)** - Mistral OCRモデル（PDF直接処理）
 6. **[Azure OpenAI Mistral (Image)](./aoai-mistral-img/)** - Vision機能を使ったLLMベースのOCR（画像ベース）
 
 ## プロジェクト構造
@@ -39,7 +39,7 @@ ocr-research/
 │   ├── .env.example
 │   └── ocr_processor.py
 │
-├── aoai-mistral-ocr-pdf/          # Azure OpenAI Mistral OCR (PDF直接処理)
+├── aoai-mistral-pdf/              # Azure OpenAI Mistral (PDF直接処理)
 │   ├── README.md
 │   ├── requirements.txt
 │   ├── .env.example
@@ -62,7 +62,7 @@ ocr-research/
 ### 1. 試したいOCRソリューションのディレクトリに移動
 
 ```bash
-cd markitdown  # または docling, azure-ai-vision, azure-document-intelligence, aoai-mistral-ocr-pdf, aoai-mistral-img
+cd markitdown  # または docling, azure-ai-vision, azure-document-intelligence, aoai-mistral-pdf, aoai-mistral-img
 ```
 
 ### 2. 各ディレクトリのREADMEを参照
@@ -89,25 +89,25 @@ python ocr_processor.py ../sample_pdfs/your.pdf output.txt
 | **Docling** | ローカル | 不要 | 高 | 中 | ライブラリ | 無料 | 構造化、Markdown出力 |
 | **Azure AI Vision** | クラウド | 必要 | 高 | 速い | 画像変換 | 低価格 | OCR特化、手書き対応 |
 | **Azure DI** | クラウド | 必要 | 非常に高 | 速い | 直接 | 中価格 | レイアウト、表・フォーム |
-| **Azure OpenAI Mistral OCR (PDF)** | クラウド | 必要 | 高 | 速い | **直接** | 高額 | **PDF直接処理** |
+| **Azure OpenAI Mistral (PDF)** | クラウド | 必要 | 高 | 速い | **直接** | 高額 | **PDF直接処理** |
 | **Azure OpenAI Mistral (Image)** | クラウド | 必要 | 高 | 遅い | 画像変換 | 高額 | 文脈理解、複雑な文書 |
 
 ### どれを選ぶべきか？
 
 - **無料で試したい** → MarkItDown または Docling
 - **コストパフォーマンス重視** → Azure AI Vision
-- **PDF直接処理したい** → Azure OpenAI Mistral OCR (PDF) または Azure Document Intelligence
+- **PDF直接処理したい** → Azure OpenAI Mistral (PDF) または Azure Document Intelligence
 - **高精度OCRが必要** → Azure AI Vision または Azure Document Intelligence
 - **表・フォーム抽出が必要** → Docling または Azure Document Intelligence
 - **文脈理解が必要** → Azure OpenAI Mistral (Image)
-- **速度重視** → MarkItDown、Azure AI Vision、Azure OpenAI Mistral OCR (PDF)
+- **速度重視** → MarkItDown、Azure AI Vision、Azure OpenAI Mistral (PDF)
 
 ### Azure サービスの使い分け
 
 | 用途 | 推奨サービス | 理由 |
 |------|------------|------|
 | シンプルなテキスト抽出 | Azure AI Vision | 低コスト、高速 |
-| PDF直接処理（画像変換なし） | Azure OpenAI Mistral OCR (PDF) | PDF直接処理、シンプル実装 |
+| PDF直接処理（画像変換なし） | Azure OpenAI Mistral (PDF) | PDF直接処理、シンプル実装 |
 | 表やフォームの構造抽出 | Azure Document Intelligence | レイアウト分析機能 |
 | 文脈理解が必要 | Azure OpenAI Mistral (Image) | LLMによる高度な理解 |
 
@@ -130,7 +130,7 @@ python ocr_processor.py ../sample_pdfs/your-document.pdf output.txt
 
 共通の問題：
 - **pdf2image関連エラー**: `poppler-utils`のインストールが必要（Azure AI Vision、Azure OpenAI Mistral (Image)使用時）
-  - **注**: Azure OpenAI Mistral OCR (PDF)とAzure DIはPDF直接処理のため不要
+  - **注**: Azure OpenAI Mistral (PDF)とAzure DIはPDF直接処理のため不要
 - **モジュールが見つからない**: 各ディレクトリで`pip install -r requirements.txt`を実行
 - **Azure認証エラー**: `.env`ファイルの設定を確認
 
